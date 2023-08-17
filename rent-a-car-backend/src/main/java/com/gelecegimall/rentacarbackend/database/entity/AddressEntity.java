@@ -1,11 +1,13 @@
 package com.gelecegimall.rentacarbackend.database.entity;
 
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -19,5 +21,9 @@ public class AddressEntity extends BaseEntity {
 
     @Column
     private String state;
+
+
+
+
 
 }

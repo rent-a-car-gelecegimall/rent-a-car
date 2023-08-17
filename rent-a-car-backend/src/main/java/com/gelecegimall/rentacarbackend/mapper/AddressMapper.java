@@ -1,25 +1,43 @@
 package com.gelecegimall.rentacarbackend.mapper;
 
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
-import com.gelecegimall.rentacarbackend.model.AddressDTO;
+import com.gelecegimall.rentacarbackend.model.AddressResponseDTO;
+import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AddressMapper {
 
-    public AddressDTO entityToRequestDTO(AddressEntity addressEntity) {
-        AddressDTO addressDTO = new AddressDTO();
+    public AddressResponseDTO entityToResponseDTO(AddressEntity addressEntity) {
+        AddressResponseDTO addressResponseDTO = new AddressResponseDTO();
 
-        addressDTO.setId(addressEntity.getId());
-        addressDTO.setUuid(addressEntity.getUuid());
-        addressDTO.setCreationDate(addressEntity.getCreationDate());
-        addressDTO.setLastModifiedDate(addressEntity.getLastModifiedDate());
+        addressResponseDTO.setId(addressEntity.getId());
+        addressResponseDTO.setUuid(addressEntity.getUuid());
+        addressResponseDTO.setCreationDate(addressEntity.getCreationDate());
+        addressResponseDTO.setLastModifiedDate(addressEntity.getLastModifiedDate());
 
-        addressDTO.setCity(addressEntity.getCity());
-        addressDTO.setState(addressEntity.getState());
-        addressDTO.setPhoneNumber(addressEntity.getPhoneNumber());
+        addressResponseDTO.setCity(addressEntity.getCity());
+        addressResponseDTO.setState(addressEntity.getState());
+        addressResponseDTO.setPhoneNumber(addressEntity.getPhoneNumber());
 
-        return addressDTO;
+        return addressResponseDTO;
     }
+
+    public AddressEntity requestDtoToEntity(AddressRequestDTO addressRequestDTO){
+        AddressEntity addressEntity = new AddressEntity();
+        addressEntity.setId(addressRequestDTO.getId());
+        addressEntity.setUuid(addressRequestDTO.getUuid());
+        addressEntity.setCreationDate(addressRequestDTO.getCreationDate());
+
+        addressEntity.setCity(addressRequestDTO.getCity());
+        addressEntity.setState(addressRequestDTO.getState());
+        addressEntity.setPhoneNumber(addressRequestDTO.getPhoneNumber());
+
+        return addressEntity;
+    }
+
+
+
+
 
 }

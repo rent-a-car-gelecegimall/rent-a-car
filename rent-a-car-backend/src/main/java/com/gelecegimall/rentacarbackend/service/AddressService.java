@@ -3,12 +3,10 @@ package com.gelecegimall.rentacarbackend.service;
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
 import com.gelecegimall.rentacarbackend.database.repository.AddressRepository;
 import com.gelecegimall.rentacarbackend.mapper.AddressMapper;
-import com.gelecegimall.rentacarbackend.model.AddressResponseDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

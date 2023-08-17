@@ -1,7 +1,7 @@
 package com.gelecegimall.rentacarbackend.mapper;
 
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
-import com.gelecegimall.rentacarbackend.model.AddressResponseDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
 import org.springframework.stereotype.Component;
 

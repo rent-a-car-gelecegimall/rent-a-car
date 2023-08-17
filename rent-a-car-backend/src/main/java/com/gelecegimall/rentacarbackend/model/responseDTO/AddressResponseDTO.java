@@ -1,4 +1,4 @@
-package com.gelecegimall.rentacarbackend.model;
+package com.gelecegimall.rentacarbackend.model.responseDTO;
 
 import com.gelecegimall.rentacarbackend.util.BaseDTO;
 import lombok.Data;

@@ -1,8 +1,9 @@
 package com.gelecegimall.rentacarbackend.model.requestDTO;
 
-import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
+import lombok.Data;
 
+@Data
 public class CarRequestDTO extends BaseRequestDTO {
 
 

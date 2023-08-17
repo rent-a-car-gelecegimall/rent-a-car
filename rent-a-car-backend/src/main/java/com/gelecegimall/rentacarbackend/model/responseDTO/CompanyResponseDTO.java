@@ -1,13 +1,11 @@
 package com.gelecegimall.rentacarbackend.model.responseDTO;
 
-import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseDTO;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class CompanyResponseDTO extends BaseDTO {
 
 

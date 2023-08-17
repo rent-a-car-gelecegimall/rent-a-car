@@ -32,6 +32,6 @@ public class BaseEntity {
 
     @PrePersist // database e kaydedilmeden çalışan metod
     protected void prePersist() {
-        setUuid(UUID.randomUUID());
+        this.uuid = UUID.randomUUID();
     }
 }

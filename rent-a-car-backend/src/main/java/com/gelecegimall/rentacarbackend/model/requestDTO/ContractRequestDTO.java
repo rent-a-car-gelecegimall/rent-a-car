@@ -4,10 +4,12 @@ import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
 import com.gelecegimall.rentacarbackend.database.entity.CustomerEntity;
 import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+@Data
 public class ContractRequestDTO extends BaseRequestDTO {
 
     private boolean isActive;

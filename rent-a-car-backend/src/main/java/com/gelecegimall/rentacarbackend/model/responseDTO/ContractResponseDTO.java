@@ -1,16 +1,12 @@
 package com.gelecegimall.rentacarbackend.model.responseDTO;
 
-import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
-import com.gelecegimall.rentacarbackend.database.entity.CustomerEntity;
-import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseDTO;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+@Data
 public class ContractResponseDTO extends BaseDTO {
 
 

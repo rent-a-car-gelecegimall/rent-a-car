@@ -1,8 +1,9 @@
 package com.gelecegimall.rentacarbackend.mapper;
 
+
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
-import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -28,9 +29,6 @@ public class AddressMapper {
 
     public AddressEntity requestDtoToEntity(AddressRequestDTO addressRequestDTO){
         AddressEntity addressEntity = new AddressEntity();
-        addressEntity.setId(addressRequestDTO.getId());
-        addressEntity.setUuid(addressRequestDTO.getUuid());
-        addressEntity.setCreationDate(addressRequestDTO.getCreationDate());
 
         addressEntity.setCity(addressRequestDTO.getCity());
         addressEntity.setState(addressRequestDTO.getState());

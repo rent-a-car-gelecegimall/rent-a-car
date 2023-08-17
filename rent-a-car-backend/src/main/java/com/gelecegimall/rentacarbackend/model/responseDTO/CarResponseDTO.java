@@ -1,10 +1,9 @@
 package com.gelecegimall.rentacarbackend.model.responseDTO;
 
-import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseDTO;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 public class CarResponseDTO extends BaseDTO {
 
     private boolean isRented;

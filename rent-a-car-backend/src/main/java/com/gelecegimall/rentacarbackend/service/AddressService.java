@@ -7,21 +7,19 @@ import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Data
-@RequiredArgsConstructor
 public class AddressService {
-    //@Autowired
-    //AddressRepository addressRepository2;
 
+    @Autowired
+    AddressRepository addressRepository;
 
-    private final AddressRepository addressRepository;
-
-    private final AddressMapper addressMapper;
+    @Autowired
+    AddressMapper addressMapper;
 
     public AddressResponseDTO save(AddressRequestDTO addressRequestDTO) {
         AddressEntity addressEntity = addressMapper.requestDtoToEntity(addressRequestDTO);

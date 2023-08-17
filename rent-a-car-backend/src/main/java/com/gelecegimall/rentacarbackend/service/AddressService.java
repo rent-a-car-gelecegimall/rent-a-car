@@ -11,10 +11,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Data
 @RequiredArgsConstructor
-
 public class AddressService {
     //@Autowired
     //AddressRepository addressRepository2;
@@ -24,19 +25,16 @@ public class AddressService {
 
     private final AddressMapper addressMapper;
 
-    public ResponseEntity<AddressResponseDTO> save(AddressRequestDTO addressRequestDTO) {
+    public AddressResponseDTO save(AddressRequestDTO addressRequestDTO) {
         AddressEntity addressEntity = addressMapper.requestDtoToEntity(addressRequestDTO);
 
-        ResponseEntity<AddressResponseDTO> response;
+        AddressEntity addressResponseEntity = addressRepository.save(addressEntity);
+        return addressMapper.entityToResponseDTO(addressResponseEntity);
+    }
 
-        try {
-            AddressEntity addressResponseEntity = addressRepository.save(addressEntity);
-            response = new ResponseEntity<>(addressMapper.entityToResponseDTO(addressResponseEntity), HttpStatus.CREATED);
-        } catch (Exception e) {
-            response = new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-
-        return response;
+    public List<AddressResponseDTO> getAll(){
+        List<AddressEntity> addressEntityList = addressRepository.findAll();
+        return addressMapper.entityListToResponseDTOList(addressEntityList);
     }
 
 }

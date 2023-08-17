@@ -5,6 +5,9 @@ import com.gelecegimall.rentacarbackend.model.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class AddressMapper {
 
@@ -37,7 +40,14 @@ public class AddressMapper {
     }
 
 
+    public List<AddressResponseDTO> entityListToResponseDTOList(List<AddressEntity> addressEntityList) {
+        List<AddressResponseDTO> addressResponseDTOList = new ArrayList<>();
+
+        for(AddressEntity entity : addressEntityList ){
+            addressResponseDTOList.add(entityToResponseDTO(entity));
+        }
 
 
-
+        return addressResponseDTOList;
+    }
 }

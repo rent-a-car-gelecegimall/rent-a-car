@@ -34,6 +34,4 @@ public class BaseEntity {
     protected void prePersist() {
         setUuid(UUID.randomUUID());
     }
-
-
 }

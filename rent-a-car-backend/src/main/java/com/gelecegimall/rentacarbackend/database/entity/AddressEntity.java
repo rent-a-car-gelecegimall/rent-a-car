@@ -13,17 +13,11 @@ import java.util.List;
 @Entity
 @Table
 public class AddressEntity extends BaseEntity {
-    @Column
+
     private String city;
 
-    @Column
     private String phoneNumber;
 
-    @Column
     private String state;
-
-
-
-
 
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 import java.util.UUID;
 @Data
-public class BaseDTO {
+public class BaseResponseDTO {
     private Long id;
 
     private UUID uuid;

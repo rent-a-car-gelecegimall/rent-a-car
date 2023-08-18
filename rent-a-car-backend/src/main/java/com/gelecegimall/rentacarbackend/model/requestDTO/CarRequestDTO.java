@@ -3,6 +3,8 @@ package com.gelecegimall.rentacarbackend.model.requestDTO;
 import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class CarRequestDTO extends BaseRequestDTO {
 
@@ -15,6 +17,6 @@ public class CarRequestDTO extends BaseRequestDTO {
 
     private String licensePlate;
 
-    private OfficeRequestDTO office;
+    private UUID officeUuid;
 
 }

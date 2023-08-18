@@ -1,10 +1,10 @@
 package com.gelecegimall.rentacarbackend.model.responseDTO;
 
-import com.gelecegimall.rentacarbackend.util.BaseDTO;
+import com.gelecegimall.rentacarbackend.util.BaseResponseDTO;
 import lombok.Data;
 
 @Data
-public class AddressResponseDTO extends BaseDTO {
+public class AddressResponseResponseDTO extends BaseResponseDTO {
 
     private String city;
 

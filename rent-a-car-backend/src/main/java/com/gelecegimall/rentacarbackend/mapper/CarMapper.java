@@ -2,22 +2,17 @@ package com.gelecegimall.rentacarbackend.mapper;
 
 import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
 import com.gelecegimall.rentacarbackend.model.requestDTO.CarRequestDTO;
-import com.gelecegimall.rentacarbackend.model.responseDTO.CarResponseDTO;
-import lombok.Data;
+import com.gelecegimall.rentacarbackend.model.responseDTO.CarResponseResponseDTO;
+import com.gelecegimall.rentacarbackend.util.IBaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Mapper
-public interface CarMapper {
+public interface CarMapper extends IBaseMapper<CarEntity, CarResponseResponseDTO, CarRequestDTO> {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-    CarEntity requestDtoToEntity(CarRequestDTO carRequestDTO);
-    CarResponseDTO entityToResponseDto(CarEntity carEntity);
-    List<CarResponseDTO> entityListToResponseDtoList(List<CarEntity> carEntityList);
-
+    @Override
+    @Mapping(target = "office", ignore = true)
+    CarEntity requestDtoToEntity(CarRequestDTO requestDTO);
 }

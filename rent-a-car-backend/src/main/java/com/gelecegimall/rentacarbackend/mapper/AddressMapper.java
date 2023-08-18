@@ -3,7 +3,7 @@ package com.gelecegimall.rentacarbackend.mapper;
 
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
-import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseResponseDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import java.util.List;
 @Component
 public class AddressMapper {
 
-    public AddressResponseDTO entityToResponseDTO(AddressEntity addressEntity) {
-        AddressResponseDTO addressResponseDTO = new AddressResponseDTO();
+    public AddressResponseResponseDTO entityToResponseDTO(AddressEntity addressEntity) {
+        AddressResponseResponseDTO addressResponseDTO = new AddressResponseResponseDTO();
 
         addressResponseDTO.setId(addressEntity.getId());
         addressResponseDTO.setUuid(addressEntity.getUuid());
@@ -38,8 +38,8 @@ public class AddressMapper {
     }
 
 
-    public List<AddressResponseDTO> entityListToResponseDTOList(List<AddressEntity> addressEntityList) {
-        List<AddressResponseDTO> addressResponseDTOList = new ArrayList<>();
+    public List<AddressResponseResponseDTO> entityListToResponseDTOList(List<AddressEntity> addressEntityList) {
+        List<AddressResponseResponseDTO> addressResponseDTOList = new ArrayList<>();
 
         for(AddressEntity entity : addressEntityList ){
             addressResponseDTOList.add(entityToResponseDTO(entity));

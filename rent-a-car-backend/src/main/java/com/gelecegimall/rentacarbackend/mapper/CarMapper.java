@@ -3,10 +3,12 @@ package com.gelecegimall.rentacarbackend.mapper;
 import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
 import com.gelecegimall.rentacarbackend.model.requestDTO.CarRequestDTO;
 import com.gelecegimall.rentacarbackend.model.responseDTO.CarResponseDTO;
+import lombok.Data;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 

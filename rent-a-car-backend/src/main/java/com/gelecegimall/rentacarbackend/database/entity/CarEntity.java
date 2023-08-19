@@ -17,7 +17,7 @@ public class CarEntity extends BaseEntity {
 
     private String licensePlate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "office_id")
     private OfficeEntity office;
 

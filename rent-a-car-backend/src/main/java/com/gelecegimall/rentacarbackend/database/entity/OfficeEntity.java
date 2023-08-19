@@ -20,7 +20,7 @@ public class OfficeEntity extends BaseEntity {
     @JoinColumn(name = "address_id")
     private AddressEntity address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "company_id")
     private CompanyEntity company;
 

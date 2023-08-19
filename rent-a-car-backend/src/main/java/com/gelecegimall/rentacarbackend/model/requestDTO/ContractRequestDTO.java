@@ -1,8 +1,5 @@
 package com.gelecegimall.rentacarbackend.model.requestDTO;
 
-import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
-import com.gelecegimall.rentacarbackend.database.entity.CustomerEntity;
-import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
 import lombok.Data;
 

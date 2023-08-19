@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class OfficeEntity extends BaseEntity {
 
-    @OneToMany(mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "office", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<CarEntity> carList;
 
     private String name;

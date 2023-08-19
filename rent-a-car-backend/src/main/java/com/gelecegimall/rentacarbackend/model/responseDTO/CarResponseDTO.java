@@ -4,7 +4,7 @@ import com.gelecegimall.rentacarbackend.util.BaseResponseDTO;
 import lombok.Data;
 
 @Data
-public class CarResponseResponseDTO extends BaseResponseDTO {
+public class CarResponseDTO extends BaseResponseDTO {
 
     private boolean isRented;
 
@@ -14,6 +14,6 @@ public class CarResponseResponseDTO extends BaseResponseDTO {
 
     private String licensePlate;
 
-    private OfficeResponseResponseDTO office;
+    private OfficeResponseDTO office;
 
 }

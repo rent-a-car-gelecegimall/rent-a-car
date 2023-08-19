@@ -1,5 +1,7 @@
 package com.gelecegimall.rentacarbackend.util;
 
+import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
+import com.gelecegimall.rentacarbackend.util.dbutil.IBaseRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,11 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class BaseController<Service extends BaseService<ResponseDTO, RequestDTO>,
+public abstract class BaseController<
+        Entity extends BaseEntity,
+        ResponseDTO extends BaseResponseDTO,
         RequestDTO extends BaseRequestDTO,
-        ResponseDTO extends BaseResponseDTO> {
+        Repository extends IBaseRepository<Entity>,
+        Mapper extends IBaseMapper<Entity, ResponseDTO, RequestDTO>,
+        Service extends BaseService<Entity, ResponseDTO, RequestDTO, Repository, Mapper>> {
 
-    abstract Service getService();
+    protected abstract Service getService();
 
     @GetMapping
     public ResponseEntity<List<ResponseDTO>> getAll() {

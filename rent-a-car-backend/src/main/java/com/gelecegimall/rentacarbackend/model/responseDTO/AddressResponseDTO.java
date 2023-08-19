@@ -4,7 +4,7 @@ import com.gelecegimall.rentacarbackend.util.BaseResponseDTO;
 import lombok.Data;
 
 @Data
-public class AddressResponseResponseDTO extends BaseResponseDTO {
+public class AddressResponseDTO extends BaseResponseDTO {
 
     private String city;
 

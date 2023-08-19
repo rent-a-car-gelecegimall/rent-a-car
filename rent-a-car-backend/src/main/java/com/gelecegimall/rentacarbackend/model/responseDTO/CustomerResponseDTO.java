@@ -6,13 +6,13 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CustomerResponseResponseDTO extends BaseResponseDTO {
+public class CustomerResponseDTO extends BaseResponseDTO {
 
     private String name;
 
 
-    private AddressResponseResponseDTO address;
+    private AddressResponseDTO address;
 
-    private List<ContractResponseResponseDTO> contractList;
+    private List<ContractResponseDTO> contractList;
 
 }

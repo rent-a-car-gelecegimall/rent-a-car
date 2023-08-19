@@ -8,7 +8,6 @@ import java.util.UUID;
 @Data
 public class CarRequestDTO extends BaseRequestDTO {
 
-
     private boolean isRented;
 
     private String model;
@@ -17,6 +16,6 @@ public class CarRequestDTO extends BaseRequestDTO {
 
     private String licensePlate;
 
-    private UUID officeUuid;
+    private Long officeId;
 
 }

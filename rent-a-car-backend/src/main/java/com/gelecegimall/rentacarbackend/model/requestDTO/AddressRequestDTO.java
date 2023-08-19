@@ -12,5 +12,4 @@ public class AddressRequestDTO extends BaseRequestDTO {
 
     private String state;
 
-
 }

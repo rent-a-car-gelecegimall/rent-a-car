@@ -7,26 +7,21 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Data
-public class ContractResponseResponseDTO extends BaseResponseDTO {
-
+public class ContractResponseDTO extends BaseResponseDTO {
 
     private boolean isActive;
 
-
-    private CustomerResponseResponseDTO customer;
+    private CustomerResponseDTO customer;
 
     private ZonedDateTime startDate;
 
     private ZonedDateTime endDate;
 
+    private CarResponseDTO car;
 
-    private CarResponseResponseDTO car;
+    private OfficeResponseDTO fromOffice;
 
-
-    private OfficeResponseResponseDTO fromOffice;
-
-
-    private OfficeResponseResponseDTO toOffice;
+    private OfficeResponseDTO toOffice;
 
     private BigDecimal price;
 

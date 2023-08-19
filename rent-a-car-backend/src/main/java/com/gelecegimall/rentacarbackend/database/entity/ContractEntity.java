@@ -37,5 +37,4 @@ public class ContractEntity extends BaseEntity {
     private BigDecimal price;
 
 
-
 }

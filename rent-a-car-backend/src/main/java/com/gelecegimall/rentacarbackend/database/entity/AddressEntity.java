@@ -1,14 +1,11 @@
 package com.gelecegimall.rentacarbackend.database.entity;
 
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Data
-@Getter
-@Setter
 @Entity
 @Table
 public class AddressEntity extends BaseEntity {

@@ -1,36 +1,27 @@
 package com.gelecegimall.rentacarbackend.controller;
 
-import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseResponseDTO;
+import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
+import com.gelecegimall.rentacarbackend.database.repository.AddressRepository;
+import com.gelecegimall.rentacarbackend.mapper.AddressMapper;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
 import com.gelecegimall.rentacarbackend.service.AddressService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.gelecegimall.rentacarbackend.util.BaseController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("address")
-public class AddressController  {
-@Autowired
-    AddressService addressService;
+@RequiredArgsConstructor
+public class AddressController extends BaseController<
+        AddressEntity, AddressResponseDTO, AddressRequestDTO, AddressRepository, AddressMapper, AddressService> {
 
-    @GetMapping
-    public ResponseEntity<List<AddressResponseResponseDTO>> getAll(){
-        return new ResponseEntity<>(addressService.getAll(), HttpStatus.OK);
+    private final AddressService addressService;
+
+    @Override
+    protected AddressService getService() {
+        return this.addressService;
     }
-
-    @PostMapping
-    public  ResponseEntity<AddressResponseResponseDTO> save(@RequestBody AddressRequestDTO addressRequestDTO){
-        try {
-            AddressResponseResponseDTO addressResponseDTO = addressService.save(addressRequestDTO);
-            return  new ResponseEntity<>(addressResponseDTO, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-    }
-
-
 
 }

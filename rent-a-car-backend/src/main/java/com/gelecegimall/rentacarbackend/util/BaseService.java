@@ -1,22 +1,59 @@
 package com.gelecegimall.rentacarbackend.util;
 
-import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
-import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
-import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseResponseDTO;
+import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
+import com.gelecegimall.rentacarbackend.util.dbutil.IBaseRepository;
 
 import java.util.List;
 import java.util.UUID;
 
-public abstract class BaseService<ResponseDTO extends BaseResponseDTO,
-        RequestDTO extends BaseRequestDTO> {
-    abstract List<ResponseDTO> getAll();
+public abstract class BaseService<
+        Entity extends BaseEntity,
+        ResponseDTO extends BaseResponseDTO,
+        RequestDTO extends BaseRequestDTO,
+        Repository extends IBaseRepository<Entity>,
+        Mapper extends IBaseMapper<Entity, ResponseDTO, RequestDTO>> {
 
-    abstract ResponseDTO save(RequestDTO requestDTO);
+    protected abstract Mapper getBaseMapper();
 
-    abstract ResponseDTO getByUuid(UUID uuid);
 
-    abstract ResponseDTO update(UUID uuid,RequestDTO requestDTO);
+    protected abstract Repository getBaseRepository();
 
-    abstract Boolean deleteByUuid(UUID uuid);
+    public List<ResponseDTO> getAll() {
+        List<Entity> entityList = getBaseRepository().findAll();
+        return getBaseMapper().entityListToResponseDtoList(entityList);
+    }
+
+    public ResponseDTO save(RequestDTO requestDTO) {
+        Entity entity = getBaseMapper().requestDtoToEntity(requestDTO);
+        entity = getBaseRepository().save(entity);
+        return getBaseMapper().entityToResponseDto(entity);
+    }
+
+
+    public ResponseDTO update(UUID uuid, RequestDTO requestDTO) {
+        Entity entity = getBaseRepository().findByUuid(uuid).orElse(null);
+        if (entity == null) {
+            return null;
+        }
+        return getBaseMapper().entityToResponseDto(getBaseRepository().save(getBaseMapper().updateEntityFromRequestDTO(requestDTO, entity)));
+    }
+
+    public Boolean deleteByUuid(UUID uuid) {
+        Entity entity = getBaseRepository().findByUuid(uuid).orElse(null);
+        if (entity != null) {
+            getBaseRepository().delete(entity);
+            return true;
+        }
+        return false;
+    }
+
+    public ResponseDTO getByUuid(UUID uuid) {
+        Entity entity = getBaseRepository().findByUuid(uuid).orElse(null);
+        if (entity != null) {
+            return getBaseMapper().entityToResponseDto(entity);
+        } else {
+            return null;
+        }
+    }
 
 }

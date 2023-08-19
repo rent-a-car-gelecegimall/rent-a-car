@@ -3,17 +3,22 @@ package com.gelecegimall.rentacarbackend.mapper;
 
 import com.gelecegimall.rentacarbackend.database.entity.AddressEntity;
 import com.gelecegimall.rentacarbackend.model.requestDTO.AddressRequestDTO;
-import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseResponseDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.AddressResponseDTO;
+import com.gelecegimall.rentacarbackend.util.IBaseMapper;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-public class AddressMapper {
+@Mapper
+public interface AddressMapper extends IBaseMapper<AddressEntity, AddressResponseDTO, AddressRequestDTO> {
 
-    public AddressResponseResponseDTO entityToResponseDTO(AddressEntity addressEntity) {
-        AddressResponseResponseDTO addressResponseDTO = new AddressResponseResponseDTO();
+    AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
+
+/*    public AddressResponseDTO entityToResponseDTO(AddressEntity addressEntity) {
+        AddressResponseDTO addressResponseDTO = new AddressResponseDTO();
 
         addressResponseDTO.setId(addressEntity.getId());
         addressResponseDTO.setUuid(addressEntity.getUuid());
@@ -27,7 +32,7 @@ public class AddressMapper {
         return addressResponseDTO;
     }
 
-    public AddressEntity requestDtoToEntity(AddressRequestDTO addressRequestDTO){
+    public AddressEntity requestDtoToEntity(AddressRequestDTO addressRequestDTO) {
         AddressEntity addressEntity = new AddressEntity();
 
         addressEntity.setCity(addressRequestDTO.getCity());
@@ -38,14 +43,14 @@ public class AddressMapper {
     }
 
 
-    public List<AddressResponseResponseDTO> entityListToResponseDTOList(List<AddressEntity> addressEntityList) {
-        List<AddressResponseResponseDTO> addressResponseDTOList = new ArrayList<>();
+    public List<AddressResponseDTO> entityListToResponseDTOList(List<AddressEntity> addressEntityList) {
+        List<AddressResponseDTO> addressResponseDTOList = new ArrayList<>();
 
-        for(AddressEntity entity : addressEntityList ){
+        for (AddressEntity entity : addressEntityList) {
             addressResponseDTOList.add(entityToResponseDTO(entity));
         }
 
 
         return addressResponseDTOList;
-    }
+    }*/
 }

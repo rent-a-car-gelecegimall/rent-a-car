@@ -6,10 +6,10 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CompanyResponseResponseDTO extends BaseResponseDTO {
+public class CompanyResponseDTO extends BaseResponseDTO {
 
 
-    private List<OfficeResponseResponseDTO> officeList;
+    private List<OfficeResponseDTO> officeList;
 
     private String name;
 }

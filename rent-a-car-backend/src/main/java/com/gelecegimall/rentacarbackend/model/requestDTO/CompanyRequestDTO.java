@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 public class CompanyRequestDTO extends BaseRequestDTO {
 
-    private List<OfficeRequestDTO> officeList;
 
     private String name;
 

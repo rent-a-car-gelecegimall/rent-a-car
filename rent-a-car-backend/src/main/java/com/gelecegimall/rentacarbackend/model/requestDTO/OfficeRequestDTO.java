@@ -4,17 +4,14 @@ import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
 import lombok.Data;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 public class OfficeRequestDTO extends BaseRequestDTO {
-
-    private List<CarRequestDTO> carList;
 
     private String name;
 
     private AddressRequestDTO address;
 
-    private CompanyRequestDTO company;
-
-    private List<ContractRequestDTO> contractList;
+    private Long companyId;
 }

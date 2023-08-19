@@ -18,4 +18,7 @@ public interface OfficeMapper extends IBaseMapper<OfficeEntity, OfficeResponseDT
     OfficeResponseDTO entityToResponseDto(OfficeEntity entity);
 
 
+    @Override
+    @Mapping(source = "companyId", target = "company.id")
+    OfficeEntity requestDtoToEntity(OfficeRequestDTO requestDTO);
 }

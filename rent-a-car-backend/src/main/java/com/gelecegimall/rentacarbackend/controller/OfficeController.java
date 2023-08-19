@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("office")
-public class OfficeController extends BaseController<OfficeEntity, OfficeResponseDTO, OfficeRequestDTO,
+public class OfficeController extends BaseController<OfficeEntity, OfficeResponseDTO,OfficeRequestDTO,
         OfficeRepository, OfficeMapper, OfficeService> {
     
     private final OfficeService officeService;

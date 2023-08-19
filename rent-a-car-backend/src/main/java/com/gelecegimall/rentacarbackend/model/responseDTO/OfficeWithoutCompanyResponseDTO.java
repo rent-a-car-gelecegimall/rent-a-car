@@ -6,8 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class OfficeResponseDTO extends BaseResponseDTO {
-
+public class OfficeWithoutCompanyResponseDTO extends BaseResponseDTO {
 
     private List<CarWithoutOfficeResponseDTO> carList;
 
@@ -15,8 +14,5 @@ public class OfficeResponseDTO extends BaseResponseDTO {
 
     private AddressResponseDTO address;
 
-    private CompanyResponseDTO company;
-
     private List<ContractResponseDTO> contractList;
-
 }

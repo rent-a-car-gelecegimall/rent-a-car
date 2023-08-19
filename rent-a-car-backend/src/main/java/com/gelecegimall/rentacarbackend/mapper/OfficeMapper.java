@@ -13,9 +13,6 @@ public interface OfficeMapper extends IBaseMapper<OfficeEntity, OfficeResponseDT
 
     OfficeMapper INSTANCE = Mappers.getMapper(OfficeMapper.class);
 
-    @Override
-    @Mapping(target = "carList", ignore = true)
-    OfficeResponseDTO entityToResponseDto(OfficeEntity entity);
 
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 public class CompanyResponseDTO extends BaseResponseDTO {
 
 
-    private List<OfficeResponseDTO> officeList;
+    private List<OfficeWithoutCompanyResponseDTO> officeList;
 
     private String name;
 }

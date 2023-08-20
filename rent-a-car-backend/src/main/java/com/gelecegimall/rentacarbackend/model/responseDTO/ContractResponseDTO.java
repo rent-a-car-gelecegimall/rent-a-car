@@ -19,9 +19,9 @@ public class ContractResponseDTO extends BaseResponseDTO {
 
     private CarResponseDTO car;
 
-    private OfficeResponseDTO fromOffice;
+    private OfficeWithoutCarsAndContractsResponseDTO fromOffice;
 
-    private OfficeResponseDTO toOffice;
+    private OfficeWithoutCarsAndContractsResponseDTO toOffice;
 
     private BigDecimal price;
 

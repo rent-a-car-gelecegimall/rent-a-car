@@ -14,6 +14,6 @@ public class CarResponseDTO extends BaseResponseDTO {
 
     private String licensePlate;
 
-    private OfficeResponseDTO office;
+    private OfficeWithNameResponseDTO office;
 
 }

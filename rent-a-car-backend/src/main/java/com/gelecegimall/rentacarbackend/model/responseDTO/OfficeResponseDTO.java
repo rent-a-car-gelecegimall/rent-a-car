@@ -14,7 +14,7 @@ public class OfficeResponseDTO extends BaseResponseDTO {
 
     private AddressResponseDTO address;
 
-    private CompanyWithoutOfficeResponseDTO company;
+    private CompanyWithNameResponseDTO company;
 
     private List<ContractResponseDTO> contractList;
 

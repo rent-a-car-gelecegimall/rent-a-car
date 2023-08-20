@@ -12,6 +12,4 @@ public class CustomerRequestDTO extends BaseRequestDTO {
 
 
     private AddressRequestDTO address;
-
-    private List<ContractRequestDTO> contractList;
 }

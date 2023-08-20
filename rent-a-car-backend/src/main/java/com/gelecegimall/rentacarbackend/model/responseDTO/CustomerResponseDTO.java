@@ -10,9 +10,8 @@ public class CustomerResponseDTO extends BaseResponseDTO {
 
     private String name;
 
-
     private AddressResponseDTO address;
 
-    private List<ContractResponseDTO> contractList;
+    private List<ContractWithoutCustomerResponseDTO> contractList;
 
 }

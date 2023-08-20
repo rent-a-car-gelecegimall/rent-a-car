@@ -18,7 +18,6 @@ public class ContractService extends BaseService<
 
     private final ContractRepository contractRepository;
 
-
     @Override
     protected ContractMapper getBaseMapper() {
         return ContractMapper.INSTANCE;

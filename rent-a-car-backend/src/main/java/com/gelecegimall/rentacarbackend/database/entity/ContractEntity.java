@@ -3,6 +3,7 @@ package com.gelecegimall.rentacarbackend.database.entity;
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -18,8 +19,10 @@ public class ContractEntity extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private ZonedDateTime startDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private ZonedDateTime endDate;
 
     @ManyToOne(fetch = FetchType.EAGER)

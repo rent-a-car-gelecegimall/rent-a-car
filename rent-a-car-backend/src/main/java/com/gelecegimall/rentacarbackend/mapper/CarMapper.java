@@ -12,15 +12,8 @@ import org.mapstruct.factory.Mappers;
 public interface CarMapper extends IBaseMapper<CarEntity, CarResponseDTO, CarRequestDTO> {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-/*    @Override
-    @Mapping(target = "office", ignore = true)
-    CarEntity requestDtoToEntity(CarRequestDTO requestDTO);*/
-
     @Override
     @Mapping(source = "officeId", target = "office.id")
     CarEntity requestDtoToEntity(CarRequestDTO requestDTO);
 
-    @Override
-    @Mapping(target = "office", ignore = true)
-    CarResponseDTO entityToResponseDto(CarEntity entity);
 }

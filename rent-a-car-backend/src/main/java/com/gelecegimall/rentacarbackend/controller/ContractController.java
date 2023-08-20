@@ -11,11 +11,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("contracts")
-@RequiredArgsConstructor
-public class ContractController extends BaseController<
-        ContractEntity, ContractResponseDTO, ContractRequestDTO, ContractRepository, ContractMapper, ContractService> {
+public class ContractController extends BaseController<ContractEntity,
+        ContractResponseDTO,
+        ContractRequestDTO,
+        ContractRepository,
+        ContractMapper,
+        ContractService> {
 
     protected ContractService contractService;
 

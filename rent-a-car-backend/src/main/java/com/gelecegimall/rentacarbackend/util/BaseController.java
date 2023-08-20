@@ -25,12 +25,12 @@ public abstract class BaseController<
     }
 
     @PostMapping
-    public ResponseEntity<ResponseDTO> save(@RequestBody RequestDTO requestDTO) {
+    public ResponseEntity<?> save(@RequestBody RequestDTO requestDTO) {
         try {
             ResponseDTO responseDTO = getService().save(requestDTO);
             return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 

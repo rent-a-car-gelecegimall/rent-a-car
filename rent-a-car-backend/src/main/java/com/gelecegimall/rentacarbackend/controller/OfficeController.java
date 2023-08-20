@@ -9,8 +9,14 @@ import com.gelecegimall.rentacarbackend.service.CompanyService;
 import com.gelecegimall.rentacarbackend.service.OfficeService;
 import com.gelecegimall.rentacarbackend.util.BaseController;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 
 @RequiredArgsConstructor
@@ -26,4 +32,14 @@ public class OfficeController extends BaseController<OfficeEntity, OfficeRespons
         return this.officeService;
     }
 
+    @PostMapping("{officeUuid}/toAdd/{carUuid}")
+    public ResponseEntity<Boolean> addCarToOffice(@PathVariable UUID officeUuid,
+                                                  @PathVariable UUID carUuid) {
+        try {
+            OfficeResponseDTO responseDTO = getService().addCarToOffice(officeUuid, carUuid);
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

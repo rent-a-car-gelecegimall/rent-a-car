@@ -22,7 +22,5 @@ public class CarController extends BaseController<
     protected CarService getService() {
         return this.carService;
     }
-
-
 }
 

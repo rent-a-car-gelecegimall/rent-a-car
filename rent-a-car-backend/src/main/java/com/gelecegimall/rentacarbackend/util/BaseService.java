@@ -62,4 +62,7 @@ public abstract class BaseService<
         }
     }
 
+    public Entity getEntityByUuid(UUID uuid) {
+        return getBaseRepository().findByUuid(uuid).orElse(null);
+    }
 }

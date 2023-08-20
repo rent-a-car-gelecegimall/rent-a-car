@@ -11,21 +11,17 @@ public class ContractRequestDTO extends BaseRequestDTO {
 
     private boolean isActive;
 
-
-    private CustomerRequestDTO customer;
+    private Long customerId;
 
     private ZonedDateTime startDate;
 
     private ZonedDateTime endDate;
 
+    private Long carId;
 
-    private CarRequestDTO car;
+    private Long fromOfficeId;
 
-
-    private OfficeRequestDTO fromOffice;
-
-
-    private OfficeRequestDTO toOffice;
+    private Long toOfficeId;
 
     private BigDecimal price;
 }

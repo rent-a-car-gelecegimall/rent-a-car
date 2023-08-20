@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 public class OfficeResponseDTO extends BaseResponseDTO {
 
-
     private List<CarWithoutOfficeResponseDTO> carList;
 
     private String name;

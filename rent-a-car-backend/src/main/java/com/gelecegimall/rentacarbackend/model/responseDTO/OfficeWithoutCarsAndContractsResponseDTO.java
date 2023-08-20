@@ -1,2 +1,14 @@
-package com.gelecegimall.rentacarbackend.model.responseDTO;public class OfficeWithoutCarResponseDTO {
+package com.gelecegimall.rentacarbackend.model.responseDTO;
+
+import lombok.Data;
+
+@Data
+public class OfficeWithoutCarsAndContractsResponseDTO {
+
+    private String name;
+
+    private AddressResponseDTO address;
+
+    private CompanyWithoutOfficeResponseDTO company;
+
 }

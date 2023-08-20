@@ -44,7 +44,8 @@ public abstract class BaseController<
         }
     }
 
-    @DeleteMapping
+
+    @DeleteMapping("{uuid}")
     public ResponseEntity<Boolean> deleteByUuid(@PathVariable UUID uuid) {
         Boolean isDeleted = getService().deleteByUuid(uuid);
         if (isDeleted) {
@@ -54,8 +55,8 @@ public abstract class BaseController<
         }
     }
 
-    @PostMapping({"update"})
-    public ResponseEntity<ResponseDTO> update(UUID uuid, RequestDTO requestDTO) {
+    @PostMapping("update/{uuid}")
+    public ResponseEntity<ResponseDTO> update(@PathVariable UUID uuid, RequestDTO requestDTO) {
         try {
             ResponseDTO responseDTO = getService().update(uuid, requestDTO);
             return new ResponseEntity<>(responseDTO, HttpStatus.OK);

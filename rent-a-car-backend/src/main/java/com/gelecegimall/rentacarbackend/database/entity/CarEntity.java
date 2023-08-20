@@ -1,5 +1,6 @@
 package com.gelecegimall.rentacarbackend.database.entity;
 
+import com.gelecegimall.rentacarbackend.enums.CarStatusEnum;
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,8 +10,8 @@ import lombok.Data;
 @Data
 public class CarEntity extends BaseEntity {
 
-    private boolean isRented;
-
+    @Enumerated(EnumType.STRING)
+    private CarStatusEnum carStatusEnum;
     private String model;
 
     private String brand;
@@ -20,5 +21,6 @@ public class CarEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "office_id")
     private OfficeEntity office;
+
 
 }

@@ -3,6 +3,7 @@ package com.gelecegimall.rentacarbackend.service;
 import com.gelecegimall.rentacarbackend.database.entity.CarEntity;
 import com.gelecegimall.rentacarbackend.database.entity.OfficeEntity;
 import com.gelecegimall.rentacarbackend.database.repository.CarRepository;
+import com.gelecegimall.rentacarbackend.enums.CarStatusEnum;
 import com.gelecegimall.rentacarbackend.mapper.CarMapper;
 import com.gelecegimall.rentacarbackend.model.requestDTO.CarRequestDTO;
 import com.gelecegimall.rentacarbackend.model.responseDTO.CarResponseDTO;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +32,17 @@ public class CarService extends BaseService<
         return this.carRepository;
     }
 
-/*    @Autowired
+
+    public CarResponseDTO updateStatus(UUID uuid,  CarStatusEnum carStatusEnum) {
+        CarEntity entity = getBaseRepository().findByUuid(uuid).orElse(null);
+        if (entity == null) {
+            return null;
+        }
+        entity.setCarStatusEnum(carStatusEnum);
+        return getBaseMapper().entityToResponseDto(getBaseRepository().save(entity));
+    }
+
+    /*    @Autowired
     OfficeService officeService;
 
     public CarResponseDTO save(CarRequestDTO requestDTO) {

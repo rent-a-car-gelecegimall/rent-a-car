@@ -21,7 +21,7 @@ public class ContractController extends BaseController<ContractEntity,
         ContractMapper,
         ContractService> {
 
-    protected ContractService contractService;
+    private final ContractService contractService;
 
     @Override
     protected ContractService getService() {

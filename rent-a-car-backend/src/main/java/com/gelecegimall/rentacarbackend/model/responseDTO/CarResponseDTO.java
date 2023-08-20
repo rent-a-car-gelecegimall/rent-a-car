@@ -1,12 +1,13 @@
 package com.gelecegimall.rentacarbackend.model.responseDTO;
 
+import com.gelecegimall.rentacarbackend.enums.CarStatusEnum;
 import com.gelecegimall.rentacarbackend.util.BaseResponseDTO;
 import lombok.Data;
 
 @Data
 public class CarResponseDTO extends BaseResponseDTO {
 
-    private boolean isRented;
+    private CarStatusEnum carStatusEnum;
 
     private String model;
 

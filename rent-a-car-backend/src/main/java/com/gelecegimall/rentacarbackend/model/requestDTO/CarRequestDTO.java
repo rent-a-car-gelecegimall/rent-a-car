@@ -1,5 +1,6 @@
 package com.gelecegimall.rentacarbackend.model.requestDTO;
 
+import com.gelecegimall.rentacarbackend.enums.CarStatusEnum;
 import com.gelecegimall.rentacarbackend.util.BaseRequestDTO;
 import lombok.Data;
 
@@ -8,7 +9,7 @@ import java.util.UUID;
 @Data
 public class CarRequestDTO extends BaseRequestDTO {
 
-    private boolean isRented;
+    private CarStatusEnum carStatusEnum;
 
     private String model;
 

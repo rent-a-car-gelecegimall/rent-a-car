@@ -1,5 +1,7 @@
 package com.gelecegimall.rentacarbackend.util;
 
+import com.gelecegimall.rentacarbackend.model.requestDTO.BaseFilterRequestDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.PageResponseDTO;
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
 import com.gelecegimall.rentacarbackend.util.dbutil.IBaseRepository;
 import org.springframework.http.HttpStatus;
@@ -19,9 +21,9 @@ public abstract class BaseController<
 
     protected abstract Service getService();
 
-    @GetMapping
-    public ResponseEntity<List<ResponseDTO>> getAll() {
-        return new ResponseEntity<List<ResponseDTO>>(getService().getAll(), HttpStatus.OK);
+    @PostMapping("get-all-filter")
+    public ResponseEntity<PageResponseDTO<ResponseDTO>> getAll(@RequestBody BaseFilterRequestDTO baseFilterRequestDTO) {
+        return new ResponseEntity<PageResponseDTO<ResponseDTO>>(getService().getAll(baseFilterRequestDTO), HttpStatus.OK);
     }
 
     @PostMapping

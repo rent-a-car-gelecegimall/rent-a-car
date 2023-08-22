@@ -1,11 +1,18 @@
 package com.gelecegimall.rentacarbackend.util;
 
+import com.gelecegimall.rentacarbackend.model.requestDTO.BaseFilterRequestDTO;
+import com.gelecegimall.rentacarbackend.model.responseDTO.PageResponseDTO;
 import com.gelecegimall.rentacarbackend.util.dbutil.BaseEntity;
 import com.gelecegimall.rentacarbackend.util.dbutil.IBaseRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public abstract class BaseService<
         Entity extends BaseEntity,
@@ -19,9 +26,32 @@ public abstract class BaseService<
 
     protected abstract Repository getBaseRepository();
 
-    public List<ResponseDTO> getAll() {
-        List<Entity> entityList = getBaseRepository().findAll();
-        return getBaseMapper().entityListToResponseDtoList(entityList);
+    public PageResponseDTO<ResponseDTO> getAll(BaseFilterRequestDTO baseFilterRequestDTO) {
+        Pageable pageable;
+        if (baseFilterRequestDTO.getSortDTO() != null) {
+            if (baseFilterRequestDTO.getSortDTO().getDirectionEnum() == Sort.Direction.ASC) {
+                pageable = PageRequest.of(baseFilterRequestDTO.getPageNumber(),baseFilterRequestDTO.getPageSize(),
+                        Sort.by(baseFilterRequestDTO.getSortDTO().getColumnName()).ascending());
+            } else {
+                pageable = PageRequest.of(baseFilterRequestDTO.getPageNumber(),baseFilterRequestDTO.getPageSize(),
+                        Sort.by(baseFilterRequestDTO.getSortDTO().getColumnName()).descending());
+            }
+        } else {
+            pageable = PageRequest.of(baseFilterRequestDTO.getPageNumber(),baseFilterRequestDTO.getPageSize(),
+                    Sort.by("id").ascending());
+        }
+        Page<Entity> entityPage = getBaseRepository().findAll(pageable);
+        PageResponseDTO<ResponseDTO> responseDTO = new PageResponseDTO<>();
+        responseDTO.setTotalElements(entityPage.getTotalElements());
+        responseDTO.setTotalPages(entityPage.getTotalPages());
+        responseDTO.setSize(entityPage.getSize());
+
+        responseDTO.setSort(entityPage.getSort());
+        responseDTO.setNumber(entityPage.getNumber());
+        responseDTO.setHasContent(entityPage.hasContent());
+        responseDTO.setContent(getBaseMapper().entityListToResponseDtoList(entityPage.getContent()));
+        entityPage.get().map(entity -> getBaseMapper().entityToResponseDto(entity)).collect(Collectors.toList());
+        return responseDTO;
     }
     //TODO null response problem
     @Transactional
